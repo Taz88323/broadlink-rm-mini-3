@@ -1,0 +1,340 @@
+# Roberts MP-23 remote – Lovelace card (paste via Edit dashboard → Add card → Manual)
+# Needs homeassistant/packages/roberts_mp23.yaml loaded. Power/Mute/sources go through the
+# helpers so HA's assumed state stays in sync; hold "Radio" to send a raw Radio
+# press (toggles DAB/FM when already on radio).
+type: vertical-stack
+cards:
+  - type: tile
+    entity: media_player.roberts_mp_23
+    name: Roberts MP-23
+    icon: mdi:radio
+    state_content:
+      - state
+      - source
+    tap_action:
+      action: more-info
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "Power"
+        icon: mdi:power
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_power_toggle
+      - type: button
+        name: "Radio"
+        icon: mdi:radio
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: input_select.select_option
+          target: { entity_id: input_select.roberts_mp23_source }
+          data: { option: "Radio" }
+        hold_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: radio }
+      - type: button
+        name: "CD"
+        icon: mdi:disc
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: input_select.select_option
+          target: { entity_id: input_select.roberts_mp23_source }
+          data: { option: "CD" }
+      - type: button
+        name: "SD/USB"
+        icon: mdi:usb-flash-drive
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: input_select.select_option
+          target: { entity_id: input_select.roberts_mp23_source }
+          data: { option: "USB/SD" }
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "Folder/Time"
+        icon: mdi:folder-clock
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: folder_time }
+      - type: button
+        name: "Alarm"
+        icon: mdi:alarm
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: alarm }
+      - type: button
+        name: "Sleep"
+        icon: mdi:sleep
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: sleep }
+      - type: button
+        name: "Clock"
+        icon: mdi:clock-outline
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: clock }
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "1"
+        icon: mdi:numeric-1
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_1 }
+      - type: button
+        name: "2"
+        icon: mdi:numeric-2
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_2 }
+      - type: button
+        name: "3"
+        icon: mdi:numeric-3
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_3 }
+      - type: button
+        name: "Mute"
+        icon: mdi:volume-off
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_mute_toggle
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "4"
+        icon: mdi:numeric-4
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_4 }
+      - type: button
+        name: "5"
+        icon: mdi:numeric-5
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_5 }
+      - type: button
+        name: "6"
+        icon: mdi:numeric-6
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_6 }
+      - type: button
+        name: "Vol +"
+        icon: mdi:volume-plus
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: volume_up }
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "7"
+        icon: mdi:numeric-7
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_7 }
+      - type: button
+        name: "8"
+        icon: mdi:numeric-8
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_8 }
+      - type: button
+        name: "9"
+        icon: mdi:numeric-9
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_9 }
+      - type: button
+        name: "Vol −"
+        icon: mdi:volume-minus
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: volume_down }
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "Eject"
+        icon: mdi:eject
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: eject }
+      - type: button
+        name: "10/0"
+        icon: mdi:numeric-0
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_0 }
+      - type: button
+        name: "10+"
+        icon: mdi:numeric-10-box-outline
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: num_10plus }
+      - type: button
+        name: "EQ"
+        icon: mdi:equalizer
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: eq }
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "Prev"
+        icon: mdi:skip-previous
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: previous }
+      - type: button
+        name: "Next"
+        icon: mdi:skip-next
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: next }
+      - type: button
+        name: "Play/Pause"
+        icon: mdi:play-pause
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: play_pause }
+      - type: button
+        name: "Stop"
+        icon: mdi:stop
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: stop }
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: "OK"
+        icon: mdi:check-circle-outline
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: ok }
+      - type: button
+        name: "Auto Tune"
+        icon: mdi:radio-tower
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: auto_tune }
+      - type: button
+        name: "Setup"
+        icon: mdi:cog
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: setup }
+      - type: button
+        name: "Info"
+        icon: mdi:information-outline
+        show_state: false
+        icon_height: 28px
+        tap_action:
+          action: perform-action
+          perform_action: script.roberts_mp23_send
+          data: { cmd: info }

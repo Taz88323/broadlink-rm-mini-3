@@ -1,0 +1,214 @@
+# Roberts MP-23 / MP-Sound 23 – IR control via Broadlink RM mini 3
+# IR codes: Flipper-IRDB CD_Players/Roberts/ROBERTS_MP23.ir (Samsung32, address 0xA4),
+# converted to Broadlink b64 – no learning / original remote needed.
+# Broadlink entity: remote.rm_mini_3
+
+input_boolean:
+  roberts_mp23_power:
+    name: Roberts MP-23 power (assumed)
+    icon: mdi:power
+  roberts_mp23_mute:
+    name: Roberts MP-23 muted (assumed)
+    icon: mdi:volume-off
+
+input_select:
+  roberts_mp23_source:
+    name: Roberts MP-23 source
+    icon: mdi:radio
+    options:
+      - Radio
+      - CD
+      - USB/SD
+
+script:
+  roberts_mp23_send:
+    alias: Roberts MP-23 – send button
+    mode: queued
+    fields:
+      cmd:
+        name: Button
+        required: true
+        selector:
+          select:
+            options:
+              - power
+              - volume_up
+              - volume_down
+              - mute
+              - radio
+              - cd
+              - usb_sd
+              - play_pause
+              - stop
+              - next
+              - previous
+              - eject
+              - ok
+              - info
+              - setup
+              - auto_tune
+              - eq
+              - folder_time
+              - alarm
+              - sleep
+              - clock
+              - num_1
+              - num_2
+              - num_3
+              - num_4
+              - num_5
+              - num_6
+              - num_7
+              - num_8
+              - num_9
+              - num_0
+              - num_10plus
+    variables:
+      codes:
+        power: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEhISNxI3EhISEhISEhISNxI3EhISEhI3EjcSNxINBQAAAA==
+        volume_up: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEjcSNxI3EhISEhISEjcSNxISEhISEhI3EjcSNxINBQAAAA==
+        volume_down: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEjcSNxI3EhISEhISEhISNxISEhISEhI3EjcSNxINBQAAAA==
+        mute: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EhISNxI3EhISEhISEhISEhI3EhISEhI3EjcSNxINBQAAAA==
+        radio: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEhISEhISEhISEhISEhISNxI3EjcSNxI3EjcSNxINBQAAAA==
+        cd: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEhISNxISEhISEhISEhISNxI3EhISNxI3EjcSNxINBQAAAA==
+        usb_sd: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEhISEhI3EhISEhISEhISNxI3EjcSEhI3EjcSNxINBQAAAA==
+        play_pause: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EjcSEhI3EhISEhISEhISEhISEjcSEhI3EjcSNxINBQAAAA==
+        stop: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EjcSNxI3EhISEhISEhISEhISEhISEhI3EjcSNxINBQAAAA==
+        next: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EjcSNxISEhISEhISEhISEhISEhISNxI3EjcSNxINBQAAAA==
+        previous: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EjcSEhISEhISEhISEhISEhISEjcSNxI3EjcSNxINBQAAAA==
+        eject: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EjcSEhISEhISEhISEjcSEhISEjcSNxI3EjcSNxINBQAAAA==
+        ok: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEhISEhISEjcSEhISEjcSNxI3EjcSNxISEjcSNxINBQAAAA==
+        info: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEhISEhISEjcSNxI3EjcSNxI3EjcSNxISEhISEhINBQAAAA==
+        setup: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEhISEhISEjcSEhI3EjcSNxI3EjcSNxISEjcSEhINBQAAAA==
+        auto_tune: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxISEhISNxINBQAAAA==
+        eq: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EjcSNxI3EhISEhISEjcSEhISEhISEhI3EjcSNxINBQAAAA==
+        folder_time: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EhISEhISEhISEhISEjcSEhI3EjcSNxI3EjcSNxINBQAAAA==
+        alarm: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EhISNxISEhISEhISEjcSEhI3EhISNxI3EjcSNxINBQAAAA==
+        sleep: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EhISEhI3EhISEhISEjcSEhI3EjcSEhI3EjcSNxINBQAAAA==
+        clock: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EhISNxI3EhISEhISEjcSEhI3EhISEhI3EjcSNxINBQAAAA==
+        num_1: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EhISEhISEhISEhISEhISEhI3EjcSNxI3EjcSNxINBQAAAA==
+        num_2: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EhISNxISEhISEhISEhISEhI3EhISNxI3EjcSNxINBQAAAA==
+        num_3: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxI3EhISEhI3EhISEhISEhISEhI3EjcSEhI3EjcSNxINBQAAAA==
+        num_4: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxINBQAAAA==
+        num_5: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEjcSNxISEhISEhISEjcSNxISEhISNxI3EjcSNxINBQAAAA==
+        num_6: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhISEjcSEhI3EhISEhISEjcSNxISEjcSEhI3EjcSNxINBQAAAA==
+        num_7: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEjcSEhISEhISEhISEhISNxISEjcSNxI3EjcSNxINBQAAAA==
+        num_8: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEjcSNxISEhISEhISEhISNxISEhISNxI3EjcSNxINBQAAAA==
+        num_9: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSNxISEjcSEhI3EhISEhISEhISNxISEjcSEhI3EjcSNxINBQAAAA==
+        num_0: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EjcSNxISEhISEhISEjcSEhISEhISNxI3EjcSNxINBQAAAA==
+        num_10plus: b64:JgBDAJOTEhISEhI3EhISEhI3EhISNxISEhISNxISEhISNxISEjcSEhI3EjcSEhI3EhISEhISEjcSEhISEjcSEhI3EjcSNxINBQAAAA==
+    sequence:
+      - action: remote.send_command
+        target:
+          entity_id: remote.rm_mini_3
+        data:
+          command: "{{ codes[cmd] }}"
+
+  roberts_mp23_power_on:
+    alias: Roberts MP-23 – on
+    mode: single
+    sequence:
+      - condition: state
+        entity_id: input_boolean.roberts_mp23_power
+        state: "off"
+      - action: script.roberts_mp23_send
+        data: { cmd: power }
+      - action: input_boolean.turn_on
+        target: { entity_id: input_boolean.roberts_mp23_power }
+      - delay: { seconds: 2 }
+
+  roberts_mp23_power_off:
+    alias: Roberts MP-23 – off
+    mode: single
+    sequence:
+      - condition: state
+        entity_id: input_boolean.roberts_mp23_power
+        state: "on"
+      - action: script.roberts_mp23_send
+        data: { cmd: power }
+      - action: input_boolean.turn_off
+        target:
+          entity_id:
+            - input_boolean.roberts_mp23_power
+            - input_boolean.roberts_mp23_mute
+
+  roberts_mp23_power_toggle:
+    alias: Roberts MP-23 – power toggle
+    mode: single
+    sequence:
+      - if:
+          - condition: state
+            entity_id: input_boolean.roberts_mp23_power
+            state: "on"
+        then:
+          - action: script.roberts_mp23_power_off
+        else:
+          - action: script.roberts_mp23_power_on
+
+  roberts_mp23_mute_toggle:
+    alias: Roberts MP-23 – mute toggle
+    mode: single
+    sequence:
+      - action: script.roberts_mp23_send
+        data: { cmd: mute }
+      - action: input_boolean.toggle
+        target: { entity_id: input_boolean.roberts_mp23_mute }
+
+automation:
+  - id: roberts_mp23_source_changed
+    alias: Roberts MP-23 – switch source
+    mode: queued
+    triggers:
+      - trigger: state
+        entity_id: input_select.roberts_mp23_source
+        not_from: [unknown, unavailable]
+        not_to: [unknown, unavailable]
+    actions:
+      - action: script.roberts_mp23_power_on   # no-op if already on
+      - action: script.roberts_mp23_send
+        data:
+          cmd: >
+            {{ {'Radio': 'radio', 'CD': 'cd', 'USB/SD': 'usb_sd'}[trigger.to_state.state] }}
+
+media_player:
+  - platform: universal
+    name: Roberts MP-23
+    unique_id: roberts_mp23
+    device_class: speaker
+    state_template: >
+      {{ 'on' if is_state('input_boolean.roberts_mp23_power', 'on') else 'off' }}
+    attributes:
+      source: input_select.roberts_mp23_source
+      source_list: input_select.roberts_mp23_source|options
+      is_volume_muted: input_boolean.roberts_mp23_mute
+    commands:
+      turn_on:
+        action: script.roberts_mp23_power_on
+      turn_off:
+        action: script.roberts_mp23_power_off
+      toggle:
+        action: script.roberts_mp23_power_toggle
+      volume_up:
+        action: script.roberts_mp23_send
+        data: { cmd: volume_up }
+      volume_down:
+        action: script.roberts_mp23_send
+        data: { cmd: volume_down }
+      volume_mute:
+        action: script.roberts_mp23_mute_toggle
+      media_play_pause:
+        action: script.roberts_mp23_send
+        data: { cmd: play_pause }
+      media_stop:
+        action: script.roberts_mp23_send
+        data: { cmd: stop }
+      media_next_track:
+        action: script.roberts_mp23_send
+        data: { cmd: next }
+      media_previous_track:
+        action: script.roberts_mp23_send
+        data: { cmd: previous }
+      select_source:
+        action: input_select.select_option
+        target: { entity_id: input_select.roberts_mp23_source }
+        data: { option: "{{ source }}" }

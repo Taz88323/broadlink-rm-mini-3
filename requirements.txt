@@ -1,0 +1,2 @@
+broadlink>=0.19
+pyyaml>=6.0

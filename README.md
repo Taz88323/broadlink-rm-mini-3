@@ -104,3 +104,8 @@ The device doesn't need the internet. Block it from reaching the internet on you
 
 - [python-broadlink](https://github.com/mjg59/python-broadlink) (MIT)
 - IR codes: [Flipper-IRDB](https://github.com/Lucaslhm/Flipper-IRDB) (CC0-1.0)
+
+## Licence
+
+MIT – see [LICENSE](LICENSE). The IR codes in `ir/` and the codes derived from
+them are from Flipper-IRDB and are CC0 (public domain).
